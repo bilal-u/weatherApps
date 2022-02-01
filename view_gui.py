@@ -8,6 +8,8 @@ def display_options():
     print('4. Display All Games')
     print('5. Add NEW PLAYER')
     print('6. Add NEW GAME!')
+    print('7. DELETE A PLAYER!')
+    print('8. UPDATE A PLAYER\'S AGE!')
     print('0. Exit')
 
 
@@ -20,15 +22,6 @@ def main():
             player_name, player_age = get_player_info(player_id)
             print(f'Player Name = {player_name}\tPlayer Age: {player_age}')
         elif choice == 2:
-            #
-            # c = 0
-            # q1 = 'SELECT * FROM fantastic_games.players'
-            # x = get_rows(q1)[1]
-            # print(f'(Player_ID, Player_Name, Player_Age)')
-            # while c < len(x):
-            #     print(f'{x[c]}')
-            #     c += 1
-
             query_all_players = 'SELECT * FROM fantastic_games.players'
             col_names, rows = get_rows(query_all_players)
             print(col_names)
@@ -48,8 +41,25 @@ def main():
             name = input('Enter Player Name: ')
             age = int(input('Enter Player Age: '))
             add_new_player(name, age)
-        elif choice == 0:
-            break
+        elif choice == 6:
+            game_name = input('Enter Game Name: ')
+            price = float(input('Enter Game Price: '))
+            year = int(input('Enter Game Release Year: '))
+            add_new_game(game_name,price,year)
+        elif choice == 7:
+            '''
+            delete player name by player_id
+            '''
+            player_id = int(input('Enter Player ID to be deleted: '))
+            delete_player(player_id)
+        elif choice == 8:
+            '''
+            update plaers age in the player table 
+            '''
+            player_age = int(input('Enter Player Correct Age: '))
+            player_id = int(input('Enter Player ID: '))
+            update_player_age(player_age,player_id)
+
         input('Hit enter to continue\t')
 
 
