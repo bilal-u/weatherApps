@@ -4,7 +4,7 @@ host = 'localhost'
 user = 'root'
 password = 'Bu026555@'
 
-
+# user defined functions 
 def get_rows(query):
     # Step 1: Create Connection Object
     with connect(host=host, user=user, password=password) as mysql_connection_object:
