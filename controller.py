@@ -96,7 +96,7 @@ def update_player_age(player_age: int,player_id: int):
             mysql_cursor.execute(add_game_sql)
             # Step 4: Commit changes
             mysql_connection_object.commit()
-
+# main
 if __name__ == '__main__':
     # add_new_player('Matt', 20)
     pass
